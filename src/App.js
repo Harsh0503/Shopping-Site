@@ -4,6 +4,8 @@
 
 import CategoryContainer from "./components/category-container/category-container"
 
+
+
 const App = () => {
 
   const categories = [
@@ -35,7 +37,13 @@ const App = () => {
   ]
   
   return (
+    <>
     <CategoryContainer categories = {categories} />
+
+    <div>
+  HEllo World
+</div>
+</>
   );
 }
 
