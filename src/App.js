@@ -37,13 +37,10 @@ const App = () => {
   ]
   
   return (
-    <>
+   
     <CategoryContainer categories = {categories} />
 
-    <div>
-  HEllo World
-</div>
-</>
+    
   );
 }
 
