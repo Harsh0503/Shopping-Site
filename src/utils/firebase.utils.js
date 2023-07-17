@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app"
 
-import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, createUserWithEmailAndPassword,signInWithEmailAndPassword } from 'firebase/auth'
 
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
 
@@ -53,12 +53,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
         ...additionalInformation,
       });
     } catch (error) {
-      if(error.code == "auth/email-already-in-use"){
-        alert('Cannot create user, email id already registed')
-      }else{
-
-        console.log("error creating the user", error)
-      }
+      console.log('error creating the user',error.message)
     }
   }
   return userDocRef;
@@ -68,6 +63,12 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return
 
   return await createUserWithEmailAndPassword(auth, email, password)
+}
+
+export const SigninAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return
+
+  return await signInWithEmailAndPassword(auth, email, password)
 }
 
 // export default createAuthUserWithEmailAndPassword;
