@@ -5,7 +5,13 @@ const FormInput = ({ label, ...otherpops }) => {
     <div className="group">
       <input className="form-input" {...otherpops} />
       {label && (
-        <label className={`${otherpops.value.lenght ? 'shrink' : ''
+        <label className=
+        // {`${
+        //    otherpops.value.lenght ? 'shrink' : ''
+        //   } form-input-label`}
+
+          {`${
+            otherpops.value.length ? 'shrink' : ''
           } form-input-label`}
         >{label}
         </label>
