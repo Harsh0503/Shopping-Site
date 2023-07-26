@@ -4,8 +4,7 @@ import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "
 import Button from '../Button/Button-component'
 import FormInput from "../Form-Input/Form-Input.component"
 import './Sign-up-form.style.scss'
-import { useContext } from "react"
-import { UserContext } from "../../Context/User.context"
+
 
 const defaultFieldForm = {
     displayName: '',
@@ -18,7 +17,7 @@ const Signupform = () => {
     const [formFields, setFormfields] = useState(defaultFieldForm)
     const { displayName, email, password, confirmPassword } = formFields
 
-    const val = useContext(UserContext)
+  
 
     const resetFormfield = () => {
         setFormfields(defaultFieldForm)
@@ -33,14 +32,14 @@ const Signupform = () => {
         }
         try {
             const { user } = await createAuthUserWithEmailAndPassword(email, password)
-
+           
             await createUserDocumentFromAuth(user, { displayName })
             resetFormfield()
         } catch (error) {
-            if (error.code == 'auth/email-already-in-use') {
+            if (error.code === 'auth/email-already-in-use') {
                 alert('Cannot create user,email already in use ')
             } else {
-                // console.log('user creation encounted an error', error)
+                console.log('user creation encounted an error', error)
             }
         }
     }
