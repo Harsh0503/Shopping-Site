@@ -7,13 +7,7 @@ import Home from "./Routes/Home/Home.component"
 import Navigation from "./Routes/Home/Navigation/Navigation.component"
 import SignIn from "./Routes/Home/Sign-In/Sign-In.component"
 
-
-const Shop = () => {
-  return (
-    <h1>This is shop Page </h1>
-  )
-
-}
+import Shop from '../src/Routes/Shop/shop.component'
 
 const App = () => {
   return (
