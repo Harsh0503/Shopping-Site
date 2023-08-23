@@ -6,11 +6,7 @@ const FormInput = ({ label, ...otherpops }) => {
       <input className="form-input" {...otherpops} />
       {label && (
         <label className=
-        // {`${
-        //    otherpops.value.lenght ? 'shrink' : ''
-        //   } form-input-label`}
-
-          {`${
+         {`${
             otherpops.value.length ? 'shrink' : ''
           } form-input-label`}
         >{label}
