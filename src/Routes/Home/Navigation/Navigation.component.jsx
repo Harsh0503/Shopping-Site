@@ -4,12 +4,14 @@ import { Outlet, Link } from "react-router-dom"
 import CartIcon from "../../../components/Cart-item/Cart-item.component"
 import CartDropdown from "../../../components/Cart-dropdown/Cart-dropdown.component"
 import { UserContext } from "../../../Context/User.context"
+import { CartContext } from "../../../Context/Cart.context"
 import { ReactComponent as CrownLogo } from "../../../Assets/crown.svg"
 import { signOutuser } from "../../../utils/firebase.utils"
 import "./Navigation.style.scss"
 
 const Navigation = () => {
     const { currentUser } = useContext(UserContext)
+    const { isCartopen } = useContext(CartContext)
   
     return (
         <Fragment>
@@ -39,7 +41,7 @@ const Navigation = () => {
                  <CartIcon/>
 
                 </div>
-                <CartDropdown/>
+                { isCartopen && <CartDropdown/>}
             </div>
             <Outlet />
         </Fragment>
